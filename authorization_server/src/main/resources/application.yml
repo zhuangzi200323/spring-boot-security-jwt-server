@@ -1,0 +1,42 @@
+server:
+  port: 53020
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: sprint-boot-security
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/jwt_server?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    #springboot 2.x必须设置initialization-mode=always，schema指定sql
+    #或默认的schema.sql/schema-all.sql才会执行
+    initialization-mode: always
+    schema:
+      - classpath:sql/users.sql #用户表
+      - classpath:sql/roles.sql #角色表
+      - classpath:sql/user_role.sql #用户与角色关系对应表
+      - classpath:sql/permissions.sql #权限表
+      - classpath:sql/role_permission.sql #角色与权限关系对应表
+      - classpath:sql/oauth_code.sql #授权码会自动保存到这个表中
+      - classpath:sql/oauth_client_details.sql #请求token需要的信息，保存在这个表中
+      - classpath:sql/data.sql #插入测试数据
