@@ -78,6 +78,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
         tokenEnhancerChain.setTokenEnhancers(Arrays.asList(jwtAccessTokenConverter));
         service.setTokenEnhancer(tokenEnhancerChain);
 
+        //这样设置过期时间，是针对内存方式的，如果JDBC的方式，请在oauth_client_details表中进行设置
         service.setAccessTokenValiditySeconds(7200);//令牌默认有效期2小时
         service.setRefreshTokenValiditySeconds(259200);//刷新令牌默认有效期3天
 
