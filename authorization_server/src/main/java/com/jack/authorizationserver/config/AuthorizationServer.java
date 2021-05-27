@@ -40,8 +40,6 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     private JwtAccessTokenConverter jwtAccessTokenConverter;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private AuthorizationServerTokenServices tokenService;
 
     @Bean
     public ClientDetailsService clientDetailsService(DataSource dataSource){
@@ -80,7 +78,6 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
         tokenEnhancerChain.setTokenEnhancers(Arrays.asList(jwtAccessTokenConverter));
         service.setTokenEnhancer(tokenEnhancerChain);
 
-        //这样设置过期时间，是针对内存方式的，如果JDBC的方式，请在oauth_client_details表中进行设置
         service.setAccessTokenValiditySeconds(7200);//令牌默认有效期2小时
         service.setRefreshTokenValiditySeconds(259200);//刷新令牌默认有效期3天
 
@@ -102,7 +99,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
         super.configure(endpoints);
         endpoints.authenticationManager(authenticationManager)//认证管理器
                 .authorizationCodeServices(authorizationCodeServices)//授权码服务
-                .tokenServices(tokenService) //令牌管理服务
+                .tokenServices(tokenService()) //令牌管理服务
                 .allowedTokenEndpointRequestMethods(HttpMethod.POST);
     }
 
