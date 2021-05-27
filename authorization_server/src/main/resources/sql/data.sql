@@ -9,7 +9,7 @@ REPLACE INTO `users` VALUES (2, 'test', '$2a$10$Q0GkB6bAY18mrkbVAkHE/eCvYNW/Kz1T
 -- ----------------------------
 -- Records of oauth_client_details
 -- ----------------------------
-REPLACE INTO `oauth_client_details` VALUES ('client1', 'resource1', '$2a$10$Q0GkB6bAY18mrkbVAkHE/eCvYNW/Kz1TfkJZi3RSVE8SHHMNKlDtq', 'scope1', 'authorization_code,password,client_credentials,implicit,refresh_token', 'http://www.baidu.com', NULL, 300, 1500, NULL, 'false');
+REPLACE INTO `oauth_client_details` VALUES ('client1', 'resource1', '$2a$10$Q0GkB6bAY18mrkbVAkHE/eCvYNW/Kz1TfkJZi3RSVE8SHHMNKlDtq', 'scope1', 'authorization_code,password,client_credentials,implicit,refresh_token', 'http://www.baidu.com', NULL, 7200, 259200, NULL, 'false');
 
 
 -- ----------------------------
