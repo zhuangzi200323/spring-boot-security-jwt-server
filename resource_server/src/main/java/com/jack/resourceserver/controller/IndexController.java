@@ -25,4 +25,14 @@ public class IndexController {
     public Principal me(Principal principal) {
         return principal;
     }
+
+    @RequestMapping("api/test")
+    public String apiTest() {
+        return "apiTest";
+    }
+
+    @RequestMapping("web/test")
+    public String webTest() {
+        return "webTest";
+    }
 }

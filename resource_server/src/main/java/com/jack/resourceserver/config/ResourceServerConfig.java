@@ -35,6 +35,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .authorizeRequests()
 
                 //本项目所需要的授权范围,这个scope是写在auth服务的配置里的
+                .antMatchers("/api/**").access("#oauth2.hasScope('scope1')")
+                .antMatchers("/web/**").permitAll()
                 .antMatchers("/**").access("#oauth2.hasScope('scope1')")
 
                 .and()
