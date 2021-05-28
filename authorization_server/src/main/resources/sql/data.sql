@@ -1,15 +1,16 @@
 -- ----------------------------
 -- Records of users
 -- ----------------------------
+-- 密码是Deservice#*2021
+REPLACE INTO `users` VALUES (1, 'bi', '$2a$10$46Xlyv652VouHTYwUPSiIewF4zE2UWlZfe47RsB5Dl3DrCoRoxYKy', '');
 -- 密码是123456
-REPLACE INTO `users` VALUES (1, 'admin', '$2a$10$Q0GkB6bAY18mrkbVAkHE/eCvYNW/Kz1TfkJZi3RSVE8SHHMNKlDtq', '');
 REPLACE INTO `users` VALUES (2, 'test', '$2a$10$Q0GkB6bAY18mrkbVAkHE/eCvYNW/Kz1TfkJZi3RSVE8SHHMNKlDtq', '');
 
 
 -- ----------------------------
 -- Records of oauth_client_details
 -- ----------------------------
-REPLACE INTO `oauth_client_details` VALUES ('client1', 'resource1', '$2a$10$Q0GkB6bAY18mrkbVAkHE/eCvYNW/Kz1TfkJZi3RSVE8SHHMNKlDtq', 'scope1', 'authorization_code,password,client_credentials,implicit,refresh_token', 'http://www.baidu.com', NULL, 7200, 259200, NULL, 'false');
+REPLACE INTO `oauth_client_details` VALUES ('sq_bi_client', 'bi_web', '$2a$10$46Xlyv652VouHTYwUPSiIewF4zE2UWlZfe47RsB5Dl3DrCoRoxYKy', 'sq_scope', 'authorization_code,password,client_credentials,implicit,refresh_token', 'http://www.baidu.com', NULL, 7200, 259200, NULL, 'false');
 
 
 -- ----------------------------
