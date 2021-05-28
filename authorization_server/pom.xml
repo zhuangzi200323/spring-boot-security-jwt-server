@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.jack</groupId>
 	<artifactId>authorization_server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>authorization_server</name>
 	<description>Authorization server project for Oauth2 study</description>
 	<properties>
